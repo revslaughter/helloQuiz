@@ -1,0 +1,43 @@
+{
+  "name": "helloquiz",
+  "version": "0.0.1",
+  "description": "A little math quiz PWA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pile": "webpack --mode=development",
+    "pub": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/revslaughter/helloQuiz.git"
+  },
+  "keywords": [
+    "education",
+    "math",
+    "quiz",
+    "kid"
+  ],
+  "author": "James Slaughter",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/revslaughter/helloQuiz/issues"
+  },
+  "homepage": "https://github.com/revslaughter/helloQuiz#readme",
+  "dependencies": {
+    "@types/react": "^16.4.6",
+    "@types/react-dom": "^16.0.6",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "styled-components": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/react-css-modules": "^4.6.1",
+    "awesome-typescript-loader": "^5.2.0",
+    "source-map-loader": "^0.2.3",
+    "typescript": "^2.9.2",
+    "typings-for-css-modules-loader": "^1.7.0",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.1.0"
+  }
+}
