@@ -3,8 +3,8 @@ import * as ReactDOM from "react-dom";
 
 import * as components from "./components";
 
-function getRandomInt(max: number): string {
-  return Math.floor(Math.random() * Math.floor(max)).toString();
+function getRandomInt(max: number): number {
+  return Math.floor(Math.random() * Math.floor(max));
 }
 
 ReactDOM.render(
@@ -13,7 +13,6 @@ ReactDOM.render(
       firstNo={getRandomInt(6)}
       secondNo={getRandomInt(12)}
     />
-    <components.correctOrNot isCorrect={true} />
   </div>,
   document.getElementById("root")
 );
