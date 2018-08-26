@@ -1,4 +1,5 @@
-import correctOrNot from "./correctOrNot";
-import question from "./question";
+import CorrectOrNot from "./correctOrNot";
+import MathQuestion from "./question";
+import QuestionList from "./questionList";
 
-export { question, correctOrNot };
+export { MathQuestion, CorrectOrNot, QuestionList };
