@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { MathQuestion } from ".";
+import MathQuestion from "./question";
 import qListTheme from "./themes/questionList";
 import { QuestionItem, QuizArea } from "./styleOverrides";
 
@@ -23,7 +23,7 @@ function QuestionList(props: qListProps): JSX.Element {
   // for the hardest-to-read experience possible.
   for (var ix = 0; ix < props.numberOfQuestions; ix++) {
     counterGuy.push(
-      <QuestionItem>
+      <QuestionItem key={ix}>
         <MathQuestion
           firstNo={randInt(props.maxNo)}
           secondNo={randInt(props.maxNo)}

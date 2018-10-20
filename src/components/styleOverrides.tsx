@@ -19,7 +19,8 @@ const QuestionItem = styled.li`
 
 const QuizArea = styled.ul`
   list-style: none;
-  background-color: lightblue;
+  background-color: #add8e6e6;
+  background-blend-mode: overlay;
   border-radius: 1em;
   /*box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);*/
 `;

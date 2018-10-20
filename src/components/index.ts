@@ -1,5 +1,3 @@
-import CorrectOrNot from "./correctOrNot";
-import MathQuestion from "./question";
-import QuestionList from "./questionList";
+import HelloQuiz from "./app";
 
-export { MathQuestion, CorrectOrNot, QuestionList };
+export default HelloQuiz;

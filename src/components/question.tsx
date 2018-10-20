@@ -21,6 +21,7 @@ const QLayout = styled((props: qProps) => (
     {props.firstNo}
     &times;
     {props.secondNo}
+    &nbsp; =
   </span>
 ))``;
 
@@ -58,6 +59,7 @@ class MathQuestion extends React.Component<qProps, qState> {
       return (
         <span className={this.props.className}>
           {QuestionArea}
+          <br />
           <CorrectOrNot isCorrect={this.state.right} />
         </span>
       );

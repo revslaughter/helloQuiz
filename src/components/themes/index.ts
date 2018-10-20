@@ -1,3 +1,4 @@
 import qListTheme from "./questionList";
+import main from "./main"
 
-export { qListTheme };
+export { qListTheme, main };

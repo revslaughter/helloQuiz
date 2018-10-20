@@ -1,8 +1,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { QuestionList } from "./components";
+import HelloQuiz from "./components";
 
 ReactDOM.render(
-  <QuestionList numberOfQuestions={10} maxNo={12} />,
+  <div>
+    <HelloQuiz />
+  </div>,
   document.getElementById("root")
 );
