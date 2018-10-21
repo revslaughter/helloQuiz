@@ -69,6 +69,7 @@ export default class HelloQuiz extends React.Component<quizProps, quizState> {
           numberOfQuestions={this.state.questionCount}
           maxNo={this.state.numberMax}
           minNo={this.state.numberMin}
+          possibleOperators={this.state.operators}
         />
       </div>
     );

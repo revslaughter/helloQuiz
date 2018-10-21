@@ -2,24 +2,25 @@ import * as React from "react";
 import styled from "styled-components";
 import CorrectOrNot from "./correctOrNot";
 import { AnswerBox } from "./styleOverrides";
+import { operatorChoice } from "./operators";
 
 interface qProps {
   className?: string;
   firstNo: number;
   secondNo: number;
+  op: operatorChoice;
+  answer: number;
 }
 
 interface qState {
-  answer: number;
   right?: boolean;
-  arguments: { first: number; second: number };
   userInput?: number;
 }
 
 const QLayout = styled((props: qProps) => (
   <span className={props.className}>
     {props.firstNo}
-    &times;
+    {props.op.operChar}
     {props.secondNo}
     &nbsp; =
   </span>
@@ -28,10 +29,7 @@ const QLayout = styled((props: qProps) => (
 class MathQuestion extends React.Component<qProps, qState> {
   constructor(props: qProps) {
     super(props);
-    this.state = {
-      arguments: { first: props.firstNo, second: props.secondNo },
-      answer: props.firstNo * props.secondNo
-    };
+    this.state = {};
     this.handleInput.bind(this);
   }
 
@@ -39,7 +37,7 @@ class MathQuestion extends React.Component<qProps, qState> {
     if (event.key == "Enter") {
       const userAnswer = parseInt(event.currentTarget.value);
       const userIsCorrect =
-        parseInt(event.currentTarget.value) == this.state.answer;
+        parseInt(event.currentTarget.value) == this.props.answer;
       this.setState({
         userInput: userAnswer,
         right: userIsCorrect
@@ -50,7 +48,12 @@ class MathQuestion extends React.Component<qProps, qState> {
   public render() {
     let QuestionArea = (
       <span>
-        <QLayout firstNo={this.props.firstNo} secondNo={this.props.secondNo} />
+        <QLayout
+          firstNo={this.props.firstNo}
+          secondNo={this.props.secondNo}
+          op={this.props.op}
+          answer={this.props.answer}
+        />
         <AnswerBox type="number" onKeyPress={e => this.handleInput(e)} />{" "}
       </span>
     );
