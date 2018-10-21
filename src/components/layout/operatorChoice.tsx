@@ -1,5 +1,5 @@
 import * as React from "react";
-import { operatorChoice, MULTIPLICATION, ALL_OPERATORS } from "./operators";
+import { operatorChoice, ALL_OPERATORS } from "../operators";
 
 interface operProps {
   setOnChange?: (some: any) => any;

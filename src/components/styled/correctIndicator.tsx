@@ -1,13 +1,5 @@
-import * as React from "react";
 import styled from "styled-components";
-
-let correctOrNot = (props: { className?: string; isCorrect: boolean }) => {
-  if (props.isCorrect) {
-    return <span className={props.className}>Correct :)</span>;
-  } else {
-    return <span className={props.className}>Incorrect :(</span>;
-  }
-};
+import correctOrNot from "../layout/correctOrNot";
 
 const CorrectIndicator = styled(correctOrNot)`
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",

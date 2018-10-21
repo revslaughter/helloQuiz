@@ -1,8 +1,7 @@
 import * as React from "react";
-import styled from "styled-components";
 import CorrectOrNot from "./correctOrNot";
-import { AnswerBox } from "./styleOverrides";
-import { operatorChoice } from "./operators";
+import { AnswerBox } from "../styled/styleOverrides";
+import { operatorChoice } from "../operators";
 
 interface qProps {
   className?: string;
@@ -17,14 +16,14 @@ interface qState {
   userInput?: number;
 }
 
-const QLayout = styled((props: qProps) => (
+const QLayout = (props: qProps) => (
   <span className={props.className}>
     {props.firstNo}
     {props.op.operChar}
     {props.secondNo}
     &nbsp; =
   </span>
-))``;
+);
 
 class MathQuestion extends React.Component<qProps, qState> {
   constructor(props: qProps) {
@@ -72,10 +71,4 @@ class MathQuestion extends React.Component<qProps, qState> {
   }
 }
 
-const StyledMathQuestion = styled(MathQuestion)`
-  font-family: Arial, Helvetica, sans-serif;
-  display: inline flex;
-  justify-content: space-between;
-`;
-
-export default StyledMathQuestion;
+export default MathQuestion;

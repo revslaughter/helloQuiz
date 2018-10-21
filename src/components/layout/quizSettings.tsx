@@ -1,8 +1,7 @@
 import * as React from "react";
-import { operatorChoice, ALL_OPERATORS } from "./operators";
+import { operatorChoice, ALL_OPERATORS } from "../operators";
 import OperatorCheckboxes from "./operatorChoice";
 import NumberSetting from "./numberSetting";
-import { throws } from "assert";
 
 interface qSetgProp {
   initProps: {

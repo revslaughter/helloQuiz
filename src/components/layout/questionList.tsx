@@ -1,9 +1,7 @@
 import * as React from "react";
-import styled from "styled-components";
 import MathQuestion from "./question";
-import qListTheme from "./themes/questionList";
-import { QuestionItem, QuizArea } from "./styleOverrides";
-import { operatorChoice } from "./operators";
+import { QuestionItem, QuizArea } from "../styled/styleOverrides";
+import { operatorChoice } from "../operators";
 
 interface qListProps {
   className?: string;
@@ -59,13 +57,4 @@ function QuestionList(props: qListProps): JSX.Element {
   );
 }
 
-const StylinQlist = styled(QuestionList)`
-  font-size: ${qListTheme.fontSize};
-  width: ${qListTheme.width};
-  min-width: ${qListTheme.minWidth};
-  max-width: ${qListTheme.maxWidth};
-  margin: ${qListTheme.margin};
-  padding-top: ${qListTheme.padding};
-`;
-
-export default StylinQlist;
+export default QuestionList;

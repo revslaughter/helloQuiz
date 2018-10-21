@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import * as themes from "../themes";
-import QuizSettings from "../quizSettings";
+import QuizSettings from "../layout/quizSettings";
 
 export default styled(QuizSettings)`
   font-family: ${themes.main.fontFamily};
