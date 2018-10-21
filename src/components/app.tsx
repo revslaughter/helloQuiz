@@ -1,5 +1,5 @@
 import * as React from "react";
-import QuizSettings, { qSetgState } from "./quizSettings";
+import QuizSettings from "./styled/styledQuizSettings";
 import QuestionList from "./questionList";
 import { ALL_OPERATORS, operatorChoice } from "./operators";
 

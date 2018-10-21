@@ -1,6 +1,13 @@
 import styled from "styled-components";
+import * as themes from "../themes";
 import QuizSettings from "../quizSettings";
 
 export default styled(QuizSettings)`
-  background-color: #fffc;
+  font-family: ${themes.main.fontFamily};
+  font-size: ${themes.quizSettings.fontSize};
+  background-color: ${themes.quizSettings.backgroundColor};
+  .operatorCheckboxes {
+  }
+  .numberOptions {
+  }
 `;

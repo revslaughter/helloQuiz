@@ -1,4 +1,5 @@
 import qListTheme from "./questionList";
-import main from "./main"
+import quizSettings from "./quizSettings";
+import main from "./main";
 
-export { qListTheme, main };
+export { qListTheme, main, quizSettings };

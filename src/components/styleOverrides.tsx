@@ -1,4 +1,3 @@
-import * as React from "react";
 import styled from "styled-components";
 import * as themes from "./themes";
 
@@ -22,9 +21,6 @@ const QuizArea = styled.ul`
   background-color: #add8e6e6;
   background-blend-mode: overlay;
   border-radius: 1em;
-  /*box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);*/
 `;
-
-const QuestionArea = styled.div``;
 
 export { AnswerBox, QuestionItem, QuizArea };
