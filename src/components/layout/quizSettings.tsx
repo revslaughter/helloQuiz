@@ -86,7 +86,7 @@ class QuizSettings extends React.Component<qSetgProp, qSetgState> {
           />
           <NumberSetting
             name="answerAttempts"
-            caption="How many attempts per question?"
+            caption="Attempts per question?"
             updater={this.props.updateParent}
           />
         </div>

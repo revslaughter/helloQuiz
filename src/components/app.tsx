@@ -1,6 +1,6 @@
 import * as React from "react";
 import QuizSettings from "./styled/styledQuizSettings";
-import QuestionList from "./layout/questionList";
+import QuestionList from "./styled/questionArea";
 import { ALL_OPERATORS, operatorChoice } from "./operators";
 
 interface quizState {

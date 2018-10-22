@@ -10,6 +10,7 @@ let NumberSetting = (props: {
     <p className="numberSetting">
       <label htmlFor={props.name}>{props.caption}</label>
       <input
+        className="numberSetting"
         type="number"
         id={props.name}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

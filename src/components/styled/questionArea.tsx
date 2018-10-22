@@ -1,14 +1,15 @@
 import styled from "styled-components";
-import qListTheme from "../themes/questionList";
+import * as themes from "../themes";
 import QuestionList from "../layout/questionList";
 
 const StylinQlist = styled(QuestionList)`
-  font-size: ${qListTheme.fontSize};
-  width: ${qListTheme.width};
-  min-width: ${qListTheme.minWidth};
-  max-width: ${qListTheme.maxWidth};
-  margin: ${qListTheme.margin};
-  padding-top: ${qListTheme.padding};
+  font-family: ${themes.main.fontFamily};
+  font-size: ${themes.qListTheme.fontSize};
+  width: ${themes.qListTheme.width};
+  min-width: ${themes.qListTheme.minWidth};
+  max-width: ${themes.qListTheme.maxWidth};
+  margin: ${themes.qListTheme.margin};
+  padding-top: ${themes.qListTheme.padding};
 `;
 
 export default StylinQlist;
