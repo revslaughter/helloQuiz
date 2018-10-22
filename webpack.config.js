@@ -19,18 +19,6 @@ const cfg = {
     rules: [
       // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
       { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-      // transpile css styles
-      {
-        test: /\.css$/,
-        use: [
-          "style-loader",
-          "typings-for-css-modules-loader?namedExport&modules"
-        ]
-        /*: ExtractTextPlugin.extract({
-              use: "typings-for-css-modules-loader?minimize&namedExport&modules"
-            })
-          */
-      },
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
     ]

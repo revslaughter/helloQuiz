@@ -1,0 +1,17 @@
+FROM node as builder
+WORKDIR /code
+COPY ./src ./src
+COPY ./package.json .
+COPY ./package-lock.json .
+COPY tsconfig.json .
+COPY webpack.config.js .
+RUN npm install
+RUN npm run pub
+
+FROM nginx:mainline as helloquiz
+WORKDIR /usr/share/nginx/html
+COPY ./index.html .
+COPY ./images ./images
+COPY --from=builder /code/node_modules/react ./node_modules/react
+COPY --from=builder /code/node_modules/react-dom ./node_modules/react-dom
+COPY --from=builder /code/dist ./dist
