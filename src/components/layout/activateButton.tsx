@@ -4,7 +4,7 @@ function StartQuiz(props: {
   isActive: boolean;
   saveAction: () => void;
 }): JSX.Element {
-  let btnText = props.isActive ? "Reconfigure Quiz!" : "Save Settings!";
+  let btnText = props.isActive ? "Make a new Quiz!" : "Start the Quiz!";
 
   return (
     <div>
