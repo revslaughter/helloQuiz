@@ -5,11 +5,13 @@ let NumberSetting = (props: {
   name: string;
   caption: string;
   updater: (st: any) => void;
+  disabled: boolean;
 }) => {
   return (
     <p className="numberSetting">
       <label htmlFor={props.name}>{props.caption}</label>
       <input
+        disabled={props.disabled}
         className="numberSetting"
         type="number"
         id={props.name}

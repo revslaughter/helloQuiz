@@ -18,9 +18,24 @@ const QuestionItem = styled.li`
 
 const QuizArea = styled.ul`
   list-style: none;
-  background-color: #add8e6e6;
+  background-color: ${themes.qListTheme.backgroundColor};
   background-blend-mode: overlay;
   border-radius: 1em;
 `;
 
-export { AnswerBox, QuestionItem, QuizArea };
+const InactiveQuiz = styled(styled.div`
+  padding: 1em;
+`)`
+  font-family: ${themes.main.fontFamily};
+  font-size: ${themes.main.fontSize};
+  width: ${themes.qListTheme.width};
+  min-width: ${themes.qListTheme.minWidth};
+  max-width: ${themes.qListTheme.maxWidth};
+  background-color: #ea547ce6;
+  margin: ${themes.qListTheme.margin};
+  margin-top: 2em;
+  background-blend-mode: overlay;
+  border-radius: 1em;
+`;
+
+export { AnswerBox, QuestionItem, QuizArea, InactiveQuiz };

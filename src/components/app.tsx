@@ -2,6 +2,7 @@ import * as React from "react";
 import QuizSettings from "./styled/styledQuizSettings";
 import QuestionList from "./styled/questionArea";
 import { ALL_OPERATORS, operatorChoice } from "./operators";
+import { InactiveQuiz } from "./styled/styleOverrides";
 
 interface quizState {
   isActive: boolean;
@@ -11,13 +12,13 @@ interface quizState {
   numberAnswered: number;
   timeStarted: Date;
   timeFinished?: Date;
-  operators: operatorChoice[];
-  numberMax: number;
-  numberMin: number;
-  questionCount: number;
-  answerAttempts: number;
-  minRight: number;
-  maxWrong: number;
+  operators?: operatorChoice[];
+  numberMax?: number;
+  numberMin?: number;
+  questionCount?: number;
+  answerAttempts?: number;
+  minRight?: number;
+  maxWrong?: number;
 }
 
 interface quizProps {
@@ -43,34 +44,37 @@ export default class HelloQuiz extends React.Component<quizProps, quizState> {
       numberRight: 0,
       numberWrong: 0,
       numberAnswered: 0,
-      timeStarted: new Date(),
-      operators: INIT_PROPS.operators,
-      numberMax: INIT_PROPS.numberMax,
-      numberMin: INIT_PROPS.numberMin,
-      questionCount: INIT_PROPS.questionCount,
-      answerAttempts: INIT_PROPS.answerAttempts,
-      minRight: INIT_PROPS.minRight,
-      maxWrong: INIT_PROPS.maxWrong
+      timeStarted: new Date()
     };
   }
 
   updateSettings(chState: any) {
     this.setState(chState);
   }
+  quizActivate() {
+    let unThing = !this.state.isActive;
+    this.setState({ isActive: unThing });
+  }
 
   render() {
+    let activeQuizQs = this.state.isActive ? (
+      <QuestionList
+        numberOfQuestions={this.state.questionCount}
+        maxNo={this.state.numberMax}
+        minNo={this.state.numberMin}
+        possibleOperators={this.state.operators}
+      />
+    ) : (
+      <InactiveQuiz>{"Save quiz settings to start!"}</InactiveQuiz>
+    );
     return (
       <div className={this.props.className}>
         <QuizSettings
           initProps={INIT_PROPS}
           updateParent={this.updateSettings.bind(this)}
+          updateQuizActive={this.quizActivate.bind(this)}
         />
-        <QuestionList
-          numberOfQuestions={this.state.questionCount}
-          maxNo={this.state.numberMax}
-          minNo={this.state.numberMin}
-          possibleOperators={this.state.operators}
-        />
+        {activeQuizQs}
       </div>
     );
   }

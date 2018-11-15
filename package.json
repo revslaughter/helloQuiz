@@ -4,8 +4,8 @@
   "description": "A little math quiz PWA",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "pile": "webpack --mode=development",
+    "watch:pile": "onchange 'src/**/*.tsx' 'src/**/*.ts' -- webpack --mode=development",
     "pub": "webpack --mode=production"
   },
   "repository": {
@@ -34,6 +34,7 @@
   "devDependencies": {
     "@types/react-css-modules": "^4.6.1",
     "awesome-typescript-loader": "^5.2.1",
+    "onchange": "^5.0.2",
     "source-map-loader": "^0.2.3",
     "typescript": "^2.9.2",
     "typings-for-css-modules-loader": "^1.7.0",

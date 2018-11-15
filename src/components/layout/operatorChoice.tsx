@@ -4,6 +4,7 @@ import { operatorChoice, ALL_OPERATORS } from "../operators";
 interface operProps {
   setOnChange?: (some: any) => any;
   className?: string;
+  disabled: boolean;
 }
 interface operState {
   choice?: operatorChoice;
@@ -17,7 +18,7 @@ class OperatorCheckboxes extends React.Component<operProps, operState> {
 
   render() {
     return (
-      <fieldset className={this.props.className}>
+      <fieldset className={this.props.className} disabled={this.props.disabled}>
         <legend>
           Please select the operators you wish to have in the quiz:
         </legend>

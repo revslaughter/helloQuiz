@@ -32,14 +32,23 @@ class MathQuestion extends React.Component<qProps, qState> {
     this.handleInput.bind(this);
   }
 
-  handleInput(event: React.KeyboardEvent<HTMLInputElement>): void {
-    if (event.key == "Enter") {
-      const userAnswer = parseInt(event.currentTarget.value);
-      const userIsCorrect =
-        parseInt(event.currentTarget.value) == this.props.answer;
+  handleInput(event: React.FocusEvent<HTMLInputElement>): void {
+    let val = event.currentTarget.value;
+    if (val) {
+      let numVal = parseInt(val);
+      const userAnswer = numVal;
+      const userIsCorrect = numVal == this.props.answer;
       this.setState({
         userInput: userAnswer,
         right: userIsCorrect
+      });
+    } else if (
+      (val == null || val === undefined || val === "") &&
+      this.state.right !== undefined
+    ) {
+      this.setState({
+        userInput: undefined,
+        right: undefined
       });
     }
   }
@@ -53,7 +62,7 @@ class MathQuestion extends React.Component<qProps, qState> {
           op={this.props.op}
           answer={this.props.answer}
         />
-        <AnswerBox type="number" onKeyPress={e => this.handleInput(e)} />{" "}
+        <AnswerBox type="number" onBlur={e => this.handleInput(e)} />
       </span>
     );
 

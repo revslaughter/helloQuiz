@@ -2,6 +2,7 @@ import * as React from "react";
 import { operatorChoice, ALL_OPERATORS } from "../operators";
 import OperatorCheckboxes from "./operatorChoice";
 import NumberSetting from "./numberSetting";
+import ActivateButton from "./activateButton";
 
 interface qSetgProp {
   initProps: {
@@ -14,6 +15,7 @@ interface qSetgProp {
     maxWrong: number;
   };
   updateParent: (childState: any) => void;
+  updateQuizActive: () => boolean;
   className?: string;
 }
 
@@ -25,6 +27,7 @@ interface qSetgState {
   answerAttempts?: number;
   minRight?: number;
   maxWrong?: number;
+  quizActive: boolean;
 }
 
 class QuizSettings extends React.Component<qSetgProp, qSetgState> {
@@ -32,7 +35,15 @@ class QuizSettings extends React.Component<qSetgProp, qSetgState> {
 
   constructor(props: qSetgProp) {
     super(props);
-    this.myOps_ = this.props.initProps.operators;
+    this.myOps_ = [];
+    this.state = {
+      quizActive: false
+    };
+  }
+  setQuizActive(): void {
+    let unActivor = !this.state.quizActive;
+    this.setState({ quizActive: unActivor });
+    this.props.updateQuizActive();
   }
 
   setOperators(selectEvent: React.ChangeEvent<HTMLInputElement>): void {
@@ -56,40 +67,35 @@ class QuizSettings extends React.Component<qSetgProp, qSetgState> {
     return (
       <div className={this.props.className}>
         <div className="operatorCheckboxes">
-          <OperatorCheckboxes setOnChange={this.setOperators.bind(this)} />
+          <OperatorCheckboxes
+            setOnChange={this.setOperators.bind(this)}
+            disabled={this.state.quizActive}
+          />
         </div>
         <div className="numberOptions">
           <NumberSetting
+            disabled={this.state.quizActive}
             name="numberMax"
             caption="Max Number"
             updater={this.props.updateParent}
           />
           <NumberSetting
+            disabled={this.state.quizActive}
             name="numberMin"
             caption="Min Number"
             updater={this.props.updateParent}
           />
           <NumberSetting
+            disabled={this.state.quizActive}
             name="questionCount"
             caption="# Questions"
             updater={this.props.updateParent}
           />
-          <NumberSetting
-            name="minRight"
-            caption="How many right?"
-            updater={this.props.updateParent}
-          />
-          <NumberSetting
-            name="maxWrong"
-            caption="How many wrong?"
-            updater={this.props.updateParent}
-          />
-          <NumberSetting
-            name="answerAttempts"
-            caption="Attempts per question?"
-            updater={this.props.updateParent}
-          />
         </div>
+        <ActivateButton
+          isActive={this.state.quizActive}
+          saveAction={this.setQuizActive.bind(this)}
+        />
       </div>
     );
   }

@@ -6,7 +6,8 @@ let questionListTheme = {
   maxWidth: "15em",
   margin: "0 auto",
   padding: "2em",
-  fontSize: main.fontSize
+  fontSize: main.fontSize,
+  backgroundColor: "#add8e6e6"
 };
 
 export default questionListTheme;

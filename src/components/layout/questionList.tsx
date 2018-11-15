@@ -11,7 +11,13 @@ interface qListProps {
   possibleOperators: operatorChoice[];
 }
 
-function randInt(max: number, min: number): number {
+function randInt(max: number, min?: number): number {
+  if (min === undefined) min = 0;
+  if (min > max) {
+    let p = max;
+    max = min;
+    min = p;
+  }
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
